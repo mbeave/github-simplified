@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+interface UrlProp {
+  url: string;
+}
+
 function App() {
   const [url, setUrl] = useState("");
 
@@ -19,8 +23,19 @@ function App() {
         <input type="submit"/>
       </form>
       <h5>URL: {url}</h5>
+      <RepoSimplifiedView url={url} />
     </div>
   );
-};
+}
+
+function RepoSimplifiedView(props: UrlProp) {
+  const url = `${props.url}/archive/refs/heads/master.zip`;
+
+  return (
+    <a href={url}>
+      <button>Download</button>
+    </a>
+  );
+}
 
 export default App;
