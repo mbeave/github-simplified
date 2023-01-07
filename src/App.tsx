@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Markdown from "markdown-to-jsx";
 
 interface UrlProp {
   url: string;
@@ -29,12 +30,27 @@ function App() {
 }
 
 function RepoSimplifiedView(props: UrlProp) {
-  const url = `${props.url}/archive/refs/heads/master.zip`;
+  const [md, setMd] = useState('');
+
+  const repoDownload = `${props.url}/archive/refs/heads/master.zip`;
+  const urlSplit = props.url.split('/');
+  const userName = urlSplit[3];
+  const repoName = urlSplit[4];
+  const repoMarkdown = `https://raw.githubusercontent.com/${userName}/${repoName}/master/README.md`;
+
+  useEffect(() => {
+    fetch(repoMarkdown)
+      .then(res => res.text())
+      .then(res => setMd(res))
+  });
 
   return (
-    <a href={url}>
-      <button>Download</button>
-    </a>
+    <div>
+      <a href={repoDownload}>
+        <button>Download</button>
+      </a>
+      <Markdown>{md}</Markdown>
+    </div>
   );
 }
 
