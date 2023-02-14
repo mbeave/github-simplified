@@ -49,7 +49,9 @@ function RepoSimplifiedView(props: UrlProp) {
       <a href={repoDownload}>
         <button>Download</button>
       </a>
-      <Markdown>{md}</Markdown>
+      <div className="prose prose-slate prose-lg">
+        <Markdown>{md}</Markdown>
+      </div>
     </div>
   );
 }
