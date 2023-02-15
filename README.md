@@ -1,6 +1,6 @@
 # GitHub Simplified
 
-This app simplifies access to GitHub projects for non-technical users. Just enter a GitHub URL of a repository you would like simplified (you'll find it in the address bar and its something that looks like this: https://github.com/mbeave/github-simplified). 
+This app simplifies access to GitHub projects for non-technical users. Just enter a GitHub URL of a repository you would like simplified (you'll find it in the address bar and it looks something like this: https://github.com/mbeave/github-simplified). 
 
 It will then present a download button for the project and present its readme or instructions for installing and using it. 
 

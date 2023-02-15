@@ -8,7 +8,7 @@ interface UrlProp {
 function App() {
   const [url, setUrl] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     alert(`You entered: ${url}`);
   }
