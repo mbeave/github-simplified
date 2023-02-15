@@ -14,17 +14,18 @@ function App() {
   }
 
   return (
-    <div className=" flex-col">
-      <h1 className="text-center p-12 font-mono text-3xl font-bold text-white bg-neutral-500">GitHub Simplified</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="flex flex-col justify-center items-center bg-neutral-300">
+      <h1 className="text-center w-screen p-8 h-24 font-mono text-3xl font-bold text-white bg-neutral-500">GitHub Simplified</h1>
+      <form className="bg-slate-100 font-bold py-5 px-52" onSubmit={handleSubmit}>
         <label>
           Enter URL:{""}
-          <input type="url" value={url} onChange={e => setUrl(e.target.value)} />
+          <input className="" type="url" value={url} onChange={e => setUrl(e.target.value)} />
         </label>
-        <input type="submit"/>
       </form>
-      <h5>URL: {url}</h5>
-      <RepoSimplifiedView url={url} />
+      <h5 className="text-left bg-neutral-700 text-white font-bold py-5 px-52">URL: {url}</h5>
+      <div className="text-center">
+        <RepoSimplifiedView url={url} />
+      </div>
     </div>
   );
 }
@@ -45,11 +46,11 @@ function RepoSimplifiedView(props: UrlProp) {
   });
 
   return (
-    <div>
+    <div className="">
       <a href={repoDownload}>
-        <button>Download</button>
+        <button className="bg-cyan-400 hover:bg-cyan-500 text-white font-bold py-5 px-10 rounded">Download</button>
       </a>
-      <div className="prose prose-slate prose-lg">
+      <div className="prose prose-slate prose-lg w-screen text-left">
         <Markdown>{md}</Markdown>
       </div>
     </div>
